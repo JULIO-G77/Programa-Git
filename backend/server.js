@@ -34,6 +34,13 @@ app.use('/api/reportes',       require('./routes/reportes'));
 // Ruta de salud
 app.get('/api/salud', (req, res) => res.json({ estado: 'OK', sistema: 'SmartFood', version: '1.0.0' }));
 
+// Ruta explícita para el logo
+app.get('/logo.png', (req, res) => {
+  const logoPath = path.join(__dirname, '../frontend/logo.png');
+  if (fs.existsSync(logoPath)) res.sendFile(logoPath);
+  else res.status(404).json({ error: 'logo no encontrado' });
+});
+
 // SPA fallback: todas las rutas devuelven index.html
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../frontend/index.html')));
 
