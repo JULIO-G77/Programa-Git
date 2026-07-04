@@ -30,7 +30,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 15px; }
-body { font-family: var(--font); background: var(--bg-sec); color: var(--text); line-height: 1.5; min-height: 100vh; }
+body { font-family: var(--font); background: var(--bg-sec) url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&w=1920&q=80') fixed center/cover; color: var(--text); line-height: 1.5; min-height: 100vh; }
+.page { background: rgba(255,255,255,.92); backdrop-filter: blur(2px); }
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
@@ -170,8 +171,16 @@ tbody tr:hover td { background: var(--bg-sec); }
 .confirm-big.active-cancel { background: var(--danger-bg); border-color: #E24B4A; color: var(--danger); }
 .confirm-big i { font-size: 22px; }
 
+/* Banner decorativo */
+.page-header { position: relative; padding: 24px; border-radius: var(--radius-lg); margin-bottom: 20px; background: linear-gradient(135deg, var(--primary) 0%, #2a7fcf 100%); color: #fff; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60') center/cover; opacity: .15; }
+.page-header h1 { font-size: 20px; font-weight: 700; position: relative; z-index: 1; }
+.page-header p { font-size: 13px; opacity: .8; margin-top: 2px; position: relative; z-index: 1; }
+
 /* Auth pages */
-.auth-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; background: linear-gradient(135deg, #E6F1FB 0%, #f0f7ff 50%, #ffffff 100%); }
+.auth-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') center/cover; position: relative; }
+.auth-container::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+.auth-container > * { position: relative; z-index: 1; }
 .auth-card .form-group { text-align: left; }
 .auth-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; width: 100%; max-width: 440px; box-shadow: var(--shadow-lg); text-align: center; }
 .auth-logo { text-align: center; margin-bottom: 24px; }
