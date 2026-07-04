@@ -35,8 +35,8 @@ app.use('/api/reportes',       require('./routes/reportes'));
 app.get('/api/salud', (req, res) => res.json({ estado: 'OK', sistema: 'SmartFood', version: '1.0.0' }));
 
 // Ruta explícita para el logo
-app.get('/logo.png', (req, res) => {
-  const logoPath = path.join(__dirname, '../frontend/logo.png');
+app.get('/smartfood-logo.png', (req, res) => {
+  const logoPath = path.join(__dirname, '../frontend/smartfood-logo.png');
   if (fs.existsSync(logoPath)) res.sendFile(logoPath);
   else res.status(404).json({ error: 'logo no encontrado' });
 });
